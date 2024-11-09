@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Editable Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .form-section, .resume-section {
+            margin-bottom: 20px;
+        }
+
+        header {
+            text-align: center;
+            background-color: #2c29d8;
+            color: white;
+            padding: 10px;
+        }
+
+        form input, form textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #1308a3;
+            border-radius: 5px;
+        }
+
+        .form-section button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .resume-section {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #profileImagePreview {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 50%;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        /* Add a light background color to editable fields */
+        [contenteditable] {
+            background-color: #eef;
+            padding: 5px;
+            border: 1px dashed #ccc;
+            cursor: text;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dynamic Editable Resume</h1>
+    </header>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <h2>Fill Out Your Resume</h2>
+        <form id="resumeForm">
+
+            <!-- Profile Image Upload -->
+            <label for="profileImage">Upload Profile Image:</label>
+            <input type="file" id="profileImage" accept="image/*" required>
+
+            <!-- Personal Information -->
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            
+            <!-- Education -->
+            <textarea id="education" placeholder="Education (e.g., BSc in Computer Science)" required></textarea>
+            
+            <!-- Work Experience -->
+            <textarea id="workExperience" placeholder="Work Experience (e.g., Software Developer at ABC Corp)" required></textarea>
+            
+            <!-- Submit Button -->
+            <button type="submit">Generate Resume</button>
+        </form>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume-section" id="generatedResume" style="display:none;">
+        <h2>Generated Resume</h2>
+        <!-- Profile Image -->
+        <img id="profileImagePreview" src="" alt="Profile Image">
+
+        <!-- Personal Information (Editable) -->
+        <p><strong>Name:</strong> <span id="displayName" contenteditable="true"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail" contenteditable="true"></span></p>
+
+        <!-- Education (Editable) -->
+        <p><strong>Education:</strong> <span id="displayEducation" contenteditable="true"></span></p>
+
+        <!-- Work Experience (Editable) -->
+        <p><strong>Work Experience:</strong> <span id="displayWorkExperience" contenteditable="true"></span></p>
+    </section>
+
+    <!-- Include TypeScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
